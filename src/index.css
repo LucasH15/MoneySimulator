@@ -1,0 +1,58 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --bg: #05090F;
+  --bg-surface: #09111E;
+  --bg-elevated: #0D1929;
+  --bg-card: #101E30;
+  --border: #172840;
+  --border-bright: #1E3550;
+  --accent: #00E676;
+  --accent-dim: rgba(0, 230, 118, 0.1);
+  --accent-glow: 0 0 24px rgba(0, 230, 118, 0.2);
+  --blue: #2979FF;
+  --blue-dim: rgba(41, 121, 255, 0.1);
+  --cyan: #00B8D4;
+  --cyan-dim: rgba(0, 184, 212, 0.1);
+  --gold: #FFB300;
+  --gold-dim: rgba(255, 179, 0, 0.1);
+  --text-1: #D8EAFF;
+  --text-2: #5E7A9E;
+  --text-3: #2E4460;
+  --font-display: 'Syne', sans-serif;
+  --font-body: 'Outfit', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+  --radius: 12px;
+  --radius-sm: 8px;
+  --transition: 180ms ease;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--bg);
+  color: var(--text-1);
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-image:
+    radial-gradient(ellipse 80% 40% at 10% -5%, rgba(0, 230, 118, 0.05) 0%, transparent 70%),
+    radial-gradient(ellipse 60% 30% at 90% 5%, rgba(41, 121, 255, 0.05) 0%, transparent 60%);
+}
+
+#root {
+  min-height: 100vh;
+}
+
+::-webkit-scrollbar { width: 5px; height: 5px; }
+::-webkit-scrollbar-track { background: var(--bg-surface); }
+::-webkit-scrollbar-thumb { background: var(--border-bright); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--text-3); }
