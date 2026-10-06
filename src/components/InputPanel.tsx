@@ -118,6 +118,25 @@ export default function InputPanel({ params, onChange }: Props) {
           </div>
         </div>
 
+        {/* Tax Rate */}
+        <div className="input-group">
+          <label className="input-label">Tax on Interest</label>
+          <div className="input-wrapper">
+            <input
+              type="number"
+              className="input-field"
+              value={params.taxRate}
+              min={0}
+              max={100}
+              step={1}
+              onChange={e =>
+                set({ taxRate: Math.max(0, Math.min(100, parseFloat(e.target.value) || 0)) })
+              }
+            />
+            <span className="input-adornment suffix">%</span>
+          </div>
+        </div>
+
         {/* Years */}
         <div className="input-group">
           <label className="input-label">Years to Simulate</label>

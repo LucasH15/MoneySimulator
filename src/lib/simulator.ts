@@ -5,6 +5,7 @@ export interface SimulationParams {
   contributionEveryX: number;
   interestRate: number;
   interestRateType: 'monthly' | 'yearly';
+  taxRate: number;
   years: number;
 }
 
@@ -50,11 +51,13 @@ export function simulateInvestment(params: SimulationParams): SimulationResult {
     contributionEveryX,
     interestRate,
     interestRateType,
+    taxRate,
     years,
   } = params;
 
   const safeYears = Math.max(1, Math.min(100, Math.floor(years) || 1));
   const safeRate = Math.max(0, interestRate);
+  const safeTaxRate = Math.min(100, Math.max(0, taxRate || 0));
 
   const monthlyRate =
     interestRateType === 'yearly'
@@ -92,7 +95,8 @@ export function simulateInvestment(params: SimulationParams): SimulationResult {
     }
     contributions = Math.max(0, contributions);
 
-    const interestEarned = startBalance * monthlyRate;
+    const grossInterest = startBalance * monthlyRate;
+    const interestEarned = grossInterest * (1 - safeTaxRate / 100);
     balance = startBalance + interestEarned + contributions;
 
     runningContributed += contributions;

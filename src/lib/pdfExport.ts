@@ -44,6 +44,7 @@ export function exportToPDF(result: SimulationResult, viewMode: 'monthly' | 'yea
       `Starting Amount: ${fmt(params.startingAmount)}`,
       `Contribution: ${fmt(params.contributionAmount)} ${freq}`,
       `Interest: ${params.interestRate}% ${params.interestRateType}`,
+      `Tax on Interest: ${params.taxRate}%`,
       `Period: ${params.years} years`,
       `View: ${viewMode}`,
     ].join('   ·   '),

@@ -1,15 +1,8 @@
 import type { SimulationResult } from '../lib/simulator';
+import { abbrev } from '../lib/format';
 
 interface Props {
   result: SimulationResult;
-}
-
-function abbrev(v: number): string {
-  const abs = Math.abs(v);
-  if (abs >= 1_000_000_000) return `$${(v / 1_000_000_000).toFixed(2)}B`;
-  if (abs >= 1_000_000) return `$${(v / 1_000_000).toFixed(2)}M`;
-  if (abs >= 1_000) return `$${(v / 1_000).toFixed(1)}K`;
-  return `$${v.toFixed(2)}`;
 }
 
 export default function SummaryCards({ result }: Props) {
